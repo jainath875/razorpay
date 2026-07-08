@@ -1,0 +1,4 @@
+package com.codishuttle.razorpay.common.enums;
+
+public enum MerchantStatus {
+}

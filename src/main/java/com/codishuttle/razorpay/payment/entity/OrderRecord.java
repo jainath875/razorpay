@@ -1,0 +1,4 @@
+package com.codishuttle.razorpay.payment.entity;
+
+public class OrderRecord {
+}
