@@ -1,4 +1,6 @@
 package com.codishuttle.razorpay.common.enums;
 
 public enum Environment {
+    LIVE,
+    TEST
 }
