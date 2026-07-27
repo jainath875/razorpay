@@ -1,6 +1,9 @@
 package com.codishuttle.razorpay.vault.entity;
 
+import com.codishuttle.razorpay.common.entity.BaseEntity;
+import com.codishuttle.razorpay.common.enums.CardBrand;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -8,7 +11,12 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "vault_card")
-public class VaultCard {
+@Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class VaultCard extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
@@ -26,7 +34,7 @@ public class VaultCard {
     private byte[] encryptedDek;
 
     @Column(nullable = false)
-    private String brand;
+    private CardBrand brand;
 
     @Column(nullable = false)
     private String expiryMonth;
