@@ -4,7 +4,9 @@ import com.codishuttle.razorpay.common.util.RandomizerUtil;
 import com.codishuttle.razorpay.payment.processor.dto.PaymentProcessorResponse;
 import com.codishuttle.razorpay.payment.processor.PaymentProcessor;
 import com.codishuttle.razorpay.payment.processor.dto.PaymentProcessorRequest;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UpiPaymentProcessor implements PaymentProcessor {
     @Override
     public PaymentProcessorResponse charge(PaymentProcessorRequest request) {

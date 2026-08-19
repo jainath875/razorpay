@@ -15,5 +15,5 @@ public interface PaymentRepository extends JpaRepository<Payment, UUID> {
 
     Optional<Payment> findByIdAndMerchantId(UUID paymentId, UUID merchantId);
 
-    List<Payment> findByStatusAndCreatedAtBefor(PaymentStatus paymentStatus, LocalDateTime globalWindow);
+    List<Payment> findByStatusAndCreatedAtBefore(PaymentStatus paymentStatus, LocalDateTime globalWindow);
 }

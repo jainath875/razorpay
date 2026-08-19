@@ -103,12 +103,12 @@ public class VaultServiceImpl implements VaultService {
             PaymentProcessorRequest paymentProcessorRequest = PaymentProcessorRequest
                     .card(paymentId, pan, expiry, amount, methodDetails);
 
-            PaymentProcessorResponse paymentProcessorResponse = paymentProcessorRouter.charge(paymentProcessorRequest);
+            PaymentProcessorResponse response = paymentProcessorRouter.charge(paymentProcessorRequest);
 
             log.info("Vault charge registered, token={}****", token.substring(0, 4));
 
 
-            return paymentProcessorResponse;
+            return response;
         } catch (Exception e) {
             log.warn("Vault charge failed, token={}****", token.substring(0, 4));
             return new PaymentProcessorResponse.Failure("VAULT_CHARGE_FAILED", e.getMessage());
