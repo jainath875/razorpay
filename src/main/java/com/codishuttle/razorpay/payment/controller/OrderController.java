@@ -1,5 +1,6 @@
 package com.codishuttle.razorpay.payment.controller;
 
+import com.codishuttle.razorpay.merchant.security.MerchantContext;
 import com.codishuttle.razorpay.payment.dto.request.OrderRequest;
 import com.codishuttle.razorpay.payment.dto.response.OrderResponse;
 import com.codishuttle.razorpay.payment.service.OrderService;
@@ -21,11 +22,12 @@ public class OrderController {
 
     private final OrderService orderService;
 
-    UUID merchantId = UUID.fromString("8274ae49-aa4a-48a5-a97b-3e2c6338b6e5"); //TODO: replace it with merchant context
+    private final MerchantContext merchantContext;
+
 
     @PostMapping
     public ResponseEntity<OrderResponse> create(@RequestBody @Valid OrderRequest request) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(orderService.create(merchantId, request));
+        return ResponseEntity.status(HttpStatus.CREATED).body(orderService.create(merchantContext.getMerchantId(), request));
     }
 
 }
